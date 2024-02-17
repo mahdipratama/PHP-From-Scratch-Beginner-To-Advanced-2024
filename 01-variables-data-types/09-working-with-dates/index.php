@@ -1,5 +1,43 @@
 <?php
 $output = null;
+
+
+// Get year
+$output = date('Y'); // 2024
+
+// Use a different date with a timestamp
+$output = date('Y', 936345600); // 1999
+
+// Year for a different date
+$output = date('Y', strtotime('1999-09-01')); // 1999
+
+// Get month
+$output = date('m'); // 02 
+
+// Get day
+$output = date('d'); // 17 
+
+// Get day of the week
+$output = date('D'); // Sat
+$output = date('l'); // Saturday
+
+// Get hour
+$output = date('H'); // 06
+
+// Get minute
+$output = date('i'); // 01
+
+// Get second
+$output = date('s'); // 34
+
+// Get AM or PM
+$output = date('a'); // am 
+
+// Get full date and time
+$output = date('Y-m-d h:i:s a'); // 2024-02-17 06:01:35 am
+
+// https://www.php.net/manual/en/function.date.php
+
 ?>
 
 <!DOCTYPE html>
