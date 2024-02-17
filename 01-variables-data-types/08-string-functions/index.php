@@ -1,5 +1,38 @@
 <?php
 $output = null;
+$string = 'Hello World';
+
+$output = strlen($string); // 12 => string length
+
+// str_word_count 
+$output = str_word_count($string); // 2 
+
+// strpos
+$output = strpos($string, 'World'); // 6 
+
+// Get specific char by index
+$output = $string[4];  // o
+
+// substr
+$output = substr($string, 6, 5); // World
+
+// str_replace 
+$output = str_replace('World', 'Universe', $string); // Hello Universe
+
+// strlower 
+$output = strtolower($string); // hello world
+
+// strtoupper
+$output = strtoupper($string); // HELLO WORLD
+
+// ucwords 
+$output = ucwords($string); // Hello World
+
+// trim
+$output = trim('    Hello World    ');
+
+// https://www.php.net/manual/en/ref.strings.php
+
 ?>
 
 <!DOCTYPE html>
