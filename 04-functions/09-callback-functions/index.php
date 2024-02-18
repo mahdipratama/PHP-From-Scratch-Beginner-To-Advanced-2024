@@ -36,3 +36,20 @@ $double = function ($number) {
 $result = applyCallback($double, 5);
 
 echo $result; // 10
+
+
+// Callback regular function 
+function applyCallback2($callback, $value)
+{
+  return $callback($value);
+};
+
+// this function below passed in as a callback function
+function double($number)
+{
+  return $number * 2;
+};
+
+$result = applyCallback2('double', 5);
+
+echo $result; // 10
