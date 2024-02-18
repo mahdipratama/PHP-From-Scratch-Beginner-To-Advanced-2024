@@ -38,9 +38,11 @@ $listings = [
     'description' => 'We are looking for a friendly customer service representative to assist customers and resolve issues.',
     'salary' => 40000,
     'location' => 'New York',
-    'tags' => ['Customer Support', 'Communication', 'Problem Solving']
+    'tags' => []
   ],
 ];
+
+$dynamicBg = '';
 ?>
 
 
@@ -62,9 +64,16 @@ $listings = [
   </header>
   <div class="container mx-auto p-4 mt-4">
     <!-- Output -->
-    <?php foreach ($listings as $job) : ?>
+    <?php foreach ($listings as $index => $job) : ?>
+
+      <?php if ($index % 2 === 0) : ?>
+        <?php $dynamicBg = 'bg-blue-100' ?>
+      <?php else : ?>
+        <?php $dynamicBg = 'bg-white' ?>
+      <?php endif ?>
+
       <div class="md my-4">
-        <div class="bg-white rounded-lg shadow-md">
+        <div class="<?= $dynamicBg ?> rounded-lg shadow-md">
           <div class="p-4">
             <h2 class="text-xl font-semibold"><?= $job['title'] ?></h2>
             <p class="text-gray-700 text-lg mt-2"><?= $job['description'] ?></p>
@@ -74,16 +83,26 @@ $listings = [
               </li>
               <li class="mb-2">
                 <strong>Location:</strong> <?= $job['location'] ?>
+                <?php if ($job['location'] == 'New York') : ?>
+                  <span class="text-xs text-white bg-blue-500 rounded-full px-2-py-1 ml-2">Local</span>
+                <?php endif ?>
               </li>
-              <li class="mb-2">
-                <strong>Tags:</strong> <?= implode(', ', $job['tags']) ?>
-              </li>
+              <?php if (!empty($job['tags'])) : ?>
+                <li class="mb-2">
+                  <strong>Tags:</strong> <?= implode(', ', $job['tags']) ?>
+                </li>
+              <?php endif  ?>
             </ul>
           </div>
         </div>
+
       </div>
     <?php endforeach; ?>
   </div>
 </body>
 
 </html>
+
+<?php if ($index % 2 == 0) : ?>
+  <div class="<?= $dynamicBg ?> rounded-lg shadow-md">
+  <?php endif ?>
