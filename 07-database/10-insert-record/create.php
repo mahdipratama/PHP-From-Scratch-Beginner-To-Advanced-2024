@@ -1,3 +1,31 @@
+<?php
+require_once 'database.php';
+
+
+// to make sure we're looking for POST request
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
+  // htmlspecialchars() -> to not included html tags into database
+  $title = htmlspecialchars($_POST['title']);
+  $body = htmlspecialchars($_POST['body']);
+
+  // insert the post into database
+  $sql = 'INSERT INTO posts (title,body) VALUES (:title, :body)';
+
+  $stmt = $pdo->prepare($sql);
+
+  $params = [
+    'title' => $title,
+    'body' => $body,
+  ];
+
+  $stmt->execute($params);
+
+  header('Location: index.php');
+  exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +45,8 @@
   <div class="flex justify-center mt-10">
     <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
       <h1 class="text-2xl font-semibold mb-6">Create Blog Post</h1>
+
+
       <form method="post">
         <div class="mb-4">
           <label for="title" class="block text-gray-700 font-medium">Title</label>
@@ -33,6 +63,8 @@
           <a href="index.php" class="text-blue-500 hover:underline">Back to Posts</a>
         </div>
       </form>
+
+
     </div>
   </div>
 </body>
