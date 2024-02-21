@@ -1,5 +1,5 @@
 <?php
-require_once 'database.php';
+require 'database.php';
 
 // Prepare a SELECT statement
 $stmt = $pdo->prepare('SELECT * FROM posts');
