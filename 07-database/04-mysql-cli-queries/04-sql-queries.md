@@ -83,7 +83,17 @@ To insert a new row into the table:
 INSERT INTO posts (title, body) VALUES ('Post One', 'This is post one');
 ```
 
+To insert multiple row into the table: 
+```sql
+INSERT INTO posts (title, body) VALUES ('Post Four', 'This is post four'), ('Post Five', 'This is post five');
+```
+
 ### Selecting Data
+
+To select 1 row (record) from the table: 
+```sql
+SELECT * FROM posts WHERE id = 2;
+```
 
 To select all of the rows from the table:
 
