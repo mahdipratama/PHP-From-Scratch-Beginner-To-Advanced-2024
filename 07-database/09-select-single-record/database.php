@@ -5,7 +5,7 @@ $host = 'localhost';
 $port = 3306;
 $dbName = 'blog';
 $username = 'root';
-$password = '';
+$password = 'dontcry09';
 
 // Connection string (DSN)
 $dsn = "mysql:host={$host};port={$port};dbname={$dbName};charset=utf8";
